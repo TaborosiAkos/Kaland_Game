@@ -1,0 +1,5 @@
+﻿3|Z|Rózsaszín kulcs
+4|L|Patkány Leves
+5|D|Balta
+6|Z|Kupa
+9|Z|Narancs kulcs

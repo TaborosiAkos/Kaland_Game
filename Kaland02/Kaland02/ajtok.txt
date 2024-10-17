@@ -1,0 +1,3 @@
+﻿A:Nyitott ajtó
+Z:Zárt ajtó
+L:Lépcső

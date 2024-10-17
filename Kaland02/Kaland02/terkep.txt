@@ -1,0 +1,9 @@
+﻿1|É:0:0|NY:A:2|D:0:0|K:0:0|T:0|E:0|Robbant ház
+2|É:0:0|NY:Z:3|D:0:0|K:A:1|T:3|E:Pap|Gyermekem remélem készen állsz erre a kalandra! Megint árvíz van a faluban. A többieket evakuálták találd megőket és győződj meg hogy jólvannak kérlek.|Jézus szíve templom
+3|É:Z:5|NY:Z:6|D:A:4|K:A:2|T:0|E:Peti|-|Erdő
+4|É:A:3|NY:0:0|D:0:0|K:0:0|T:5|E:Vágó úr|Favágó háza
+5|É:0:0|NY:0:0|D:A:3|K:0:5|T:6|E:Feri:Viktor|Fogadó
+6|É:A:7|NY:Z:9|D:A:8|K:A:3|T:0|E:0|Szín birtok előszoba
+7|É:0:0|NY:0:0|D:A:6|K:0:0|T:9|E:0|Szín birtok hálószoba
+8|É:A:6|NY:0:0|D:0:0|K:0:0|T:4|E:0|Szín birtok konyha
+9|É:0:0|NY:0:0|D:0:0|K:A:6|T:0|E:Anya:Apa:Vivien:Ágota:Feri|Szín birtok pince
