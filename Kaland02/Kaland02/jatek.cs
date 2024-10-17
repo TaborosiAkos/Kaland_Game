@@ -139,6 +139,10 @@ namespace Kaland02
                         if (ajto.Item2 == 5)
                         {
                             Console.WriteLine("A bejáratot egy nagy fa torlaszolta el!");
+                        }else if (ajto.Item2 == 6)
+                        {
+                            Console.WriteLine("Az ajtó előtt egy nagy mamut áll??");
+                            Console.WriteLine("Meg kell várnom míg elmegy!");
                         }
                         Console.WriteLine("Az ajtó zárva van.");
                     }
