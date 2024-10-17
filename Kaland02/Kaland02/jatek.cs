@@ -116,7 +116,7 @@ namespace Kaland02
             if (aktualisSzoba.Ajtok.ContainsKey(irany))
             {
                 var ajto = aktualisSzoba.Ajtok[irany];
-                if (ajto.Item1 == "Z")
+                if (ajto.Item1.Contains("Zárt"))
                 {
                     bool seged = false;
                     for (int i = 0; i < inventory.Count(); i++)
