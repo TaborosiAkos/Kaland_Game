@@ -13,7 +13,9 @@ namespace Kaland02
         private Terkep terkep;
         private int aktualisSzobaId;
         private List<int> inventory = new List<int>();
-        public szoba szoba60;
+        private bool kerdes = false;
+        private int tippek = 0;
+
 
         public Jatek()
         {
@@ -44,10 +46,15 @@ namespace Kaland02
                 string irany = Console.ReadLine().ToUpper();
 
                 if (irany == "KILÉPÉS") break;
-                if (irany == "F") {
+                if (irany == "F" && aktualisSzoba.Id !=4) {
                     Console.Clear();
                     Felveszem();
-                    
+
+                }
+                else if (irany == "F" && aktualisSzoba.Id == 4 && !kerdes)
+                {
+                    Console.Clear();
+                    Beszelgetes(aktualisSzoba);
                 }
                 else if(irany == "E")
                 {
@@ -113,6 +120,10 @@ namespace Kaland02
         private void MozogJatekos(string irany)
         {
             szoba aktualisSzoba = terkep.GetSzoba(aktualisSzobaId);
+            if (aktualisSzoba.Id == 4 && !kerdes && irany == "É")
+            {
+                inventory.Remove(5);
+            }
             if (aktualisSzoba.Ajtok.ContainsKey(irany))
             {
                 var ajto = aktualisSzoba.Ajtok[irany];
@@ -215,13 +226,44 @@ namespace Kaland02
         {
             if (szoba.Ellenseg != "0" && szoba.Ellenseg_monolog != "-")
             {
-                Console.WriteLine("{0}: ", szoba.Ellenseg);
                 string[] cucc = szoba.Ellenseg_monolog.Split("%");
-                for (int i = 0; i < cucc.Length; i++)
-                {
-                    Console.WriteLine(cucc[i]);
 
+                if (szoba.Id == 4)
+                {
+                    inventory.Add(5);
+                    for (int i = 0; i < cucc.Length-3; i++)
+                    {
+                        Console.WriteLine(cucc[i]);
+                    }
+                    while (!kerdes) { 
+                    string valasz = Console.ReadLine();
+                    if (valasz != null && valasz.ToUpper() == "NAPFÉNY")
+                    {
+                        Console.WriteLine(cucc[cucc.Length-3]);
+                        kerdes = true;
+                    }else if (valasz != null && valasz.ToUpper() != "NAPFÉNY" && tippek == 3)
+                        {
+                            Console.WriteLine(cucc[cucc.Length - 2]);
+                            kerdes = true;
+                        }
+                    else
+                    {
+                        Console.WriteLine(cucc[^1]);
+                        tippek++;
+                    }
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("{0}: ", szoba.Ellenseg);
+                    for (int i = 0; i < cucc.Length; i++)
+                    {
+                        Console.WriteLine(cucc[i]);
+                    }
+                }
+                
+
+               
 
             }
             else
