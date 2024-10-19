@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Kaland02
 {
@@ -14,7 +16,11 @@ namespace Kaland02
         private int aktualisSzobaId;
         private List<int> inventory = new List<int>();
         private bool kerdes = false;
+        private bool fa_vagas = true;
+        private bool fa_kidölt = false;
         private int tippek = 0;
+        private int fa = 5;
+
 
 
         public Jatek()
@@ -133,7 +139,7 @@ namespace Kaland02
                     for (int i = 0; i < inventory.Count(); i++)
                     {
                         targy targy = terkep.GetTargy(inventory[i]);
-                        if (targy.Id == ajto.Item2)
+                        if (targy.Id == ajto.Item2 && targy.Id != 5)
                         {
                             seged = true;
                         }
@@ -149,13 +155,33 @@ namespace Kaland02
                     {
                         if (ajto.Item2 == 5)
                         {
-                            Console.WriteLine("A bejáratot egy nagy fa torlaszolta el!");
+                            if (inventory.Contains(5))
+                            {
+                                Favagas();
+                                if (fa == 0)
+                                {
+                                    aktualisSzobaId = ajto.Item2;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Áh elrontottam");
+                                    Console.Clear();
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("A bejáratot egy nagy fa torlaszolta el!");
+                            }
                         }else if (ajto.Item2 == 6)
                         {
                             Console.WriteLine("Az ajtó előtt egy nagy mamut áll??");
                             Console.WriteLine("Meg kell várnom míg elmegy!");
                         }
-                        Console.WriteLine("Az ajtó zárva van.");
+                        else
+                        {
+                            Console.WriteLine("Az ajtó zárva van.");
+                        }
+                        
                     }
                 }
                 else if (ajto.Item2 != 0)
@@ -271,6 +297,51 @@ namespace Kaland02
                 Console.WriteLine("Skizofrén vagyok itt nincs is senki!");
             }
         }
+        private void Favagas()
+        {
+            if (fa > 0)
+            {
+                fa_vagas = true;
+                Console.WriteLine("Fhu oke mehet a fa vágás. (nyomd meg a v-betűt mielőtt letelne az idő)");
+                Thread.Sleep(3000);
+            }
+            
+                while (fa_vagas)
+                {
+                    Console.WriteLine("Most:");
+                    string? vag = null;
+                    Thread inputThread = new Thread(() =>
+                    {
+                        vag = Console.ReadLine();
+
+                    });
+                    inputThread.Start();
+                    inputThread.Join(1000);
+                    if (vag == null || vag != "v")
+                    {
+                        fa_vagas = false;
+                        fa = 5;
+                        Console.Clear();
+                }
+                    if (vag == "v")
+                    {
+                        Console.WriteLine("most jo");
+                        fa--;
+                        if (fa == 0)
+                        {
+                            fa_vagas = false;
+                        }
+
+                    }
+
+
+                }
+            
+            
+            
+            
+        }
+
 
         private void Secret_Ending()
         {
