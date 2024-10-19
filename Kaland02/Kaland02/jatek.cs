@@ -220,6 +220,7 @@ namespace Kaland02
                 for (int i = 0; i < cucc.Length; i++)
                 {
                     Console.WriteLine(cucc[i]);
+
                 }
 
             }
