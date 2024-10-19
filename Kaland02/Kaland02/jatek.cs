@@ -215,7 +215,13 @@ namespace Kaland02
         {
             if (szoba.Ellenseg != "0" && szoba.Ellenseg_monolog != "-")
             {
-                Console.WriteLine(szoba.Ellenseg_monolog);
+                Console.WriteLine("{0}: ", szoba.Ellenseg);
+                string[] cucc = szoba.Ellenseg_monolog.Split("%");
+                for (int i = 0; i < cucc.Length; i++)
+                {
+                    Console.WriteLine(cucc[i]);
+                }
+
             }
             else
             {

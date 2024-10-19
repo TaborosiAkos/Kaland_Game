@@ -1,5 +1,5 @@
 ﻿1|É:0:0|NY:Ajtó:2|D:0:0|K:0:0|T:0|E:0|Robbant ház
-2|É:0:0|NY:Zárt ajtó:3|D:0:0|K:A:1|T:3|E:Pap|Gyermekem remélem készen állsz erre a kalandra! Megint árvíz van a faluban. A többieket evakuálták találd megőket és győződj meg hogy jólvannak kérlek.|Jézus szíve templom
+2|É:0:0|NY:Zárt ajtó:3|D:0:0|K:A:1|T:3|E:Pap|Gyermekem remélem készen állsz erre a kalandra!%Megint árvíz van a faluban.%A többieket evakuálták találd megőket és győződj meg hogy jólvannak kérlek.|Jézus szíve templom
 3|É:Z:5|NY:Zárt Ösvény:6|D:Ösvény:4|K:Ösvény:2|T:0|E:Peti|-|Erdő
 4|É:A:3|NY:0:0|D:0:0|K:0:0|T:5|E:Vágó úr|Favágó háza
 5|É:0:0|NY:0:0|D:A:3|K:Ajtó:10|T:6|E:Feri|Fogadó
