@@ -170,7 +170,7 @@ namespace Kaland02
                                 else
                                 {
                                     Console.Clear();
-                                    Console.WriteLine("Áh elrontottam");
+                                    Console.WriteLine("Áh, elrontottam!");
                                     
                                 }
                             }
@@ -180,7 +180,7 @@ namespace Kaland02
                             }
                         }else if (ajto.Item2 == 6)
                         {
-                            Console.WriteLine("Az ajtó előtt egy nagy mamut áll??");
+                            Console.WriteLine("Az ajtó előtt egy gigászi mamut áll??");
                             Console.WriteLine("Meg kell várnom míg elmegy!");
                         }
                         else
@@ -289,7 +289,7 @@ namespace Kaland02
             }
             else
             {
-                Console.WriteLine("Skizofrén vagyok itt nincs is senki!");
+                Console.WriteLine("Skizofrén vagyok, itt nincs is senki!");
             }
         }
 
@@ -334,12 +334,12 @@ namespace Kaland02
             }
             if (aloevera)
             {
-                Console.WriteLine("Áh megittam amit adott így még gyorsabban kell reagálnom!");
+                Console.WriteLine("Áh, megittam amit adott, ezért még gyorsabban kell reagálnom!");
                 reag = 2000;
             }
             Thread.Sleep(14000);
             Console.Clear();
-            Console.WriteLine("Feri elkezd megidézni egy protált amiről még ső se tudja melyik dimenzióba vezet.");
+            Console.WriteLine("Feri elkezd megidézni egy portált, amiről még ő sem tudja, melyik dimenzióba vezet.");
             Console.WriteLine("Gyorsan kell cselekedned!");
             if (tej)
             {
@@ -367,13 +367,13 @@ namespace Kaland02
                     if (vegTej == 1)
                     {
                         Console.Clear();
-                        Console.WriteLine("NEEEE 4,5%-os tej az egyetlen gyengém!");
+                        Console.WriteLine("NEEEE! A 4,5%-os tej az egyetlen gyengém!");
                         Console.WriteLine();
-                        Console.WriteLine("Megmentettél mindenkit! Feri a tej hatására egy ártalmatlan békévá változott és Petivel él tovább.");
-                        Console.WriteLine("Te és Vivien összeházasodtatok és lett egy gyereketek Viktor aki nevét arról a féfiról kapta aki a tejet adta");
-                        Console.WriteLine("és aki senki nem látott se a történtek előtt se a történtek után");
-                        Console.WriteLine("Vágó úr otthagyta a favágást és teljes állásban kvíz műsorokat vezet.");
-                        Console.WriteLine("A falut nem értek több árvíz így mindenki boldogan él tovább.");
+                        Console.WriteLine("Megmentettél mindenkit! Feri a tej hatására egy ártalmatlan békává változott és Petivel él tovább.");
+                        Console.WriteLine("Te és Vivien összeházasodtatok, és lett egy gyereketek, Viktor. Nevét arról a féfiról kapta, aki a tejet adta neked,");
+                        Console.WriteLine("és akit senki nem látott se a történtek előtt, se a történtek után");
+                        Console.WriteLine("Vágó úr otthagyta a favágást, és teljes állásban kvíz műsorokat vezet.");
+                        Console.WriteLine("A falut nem érte több árvíz, így mindenki boldogan él tovább.");
                         System.Environment.Exit(0);
                     }
                     else if (vegTej == 2) {
@@ -381,10 +381,10 @@ namespace Kaland02
                         Console.WriteLine("MIT CSINÁLSZ???");
                         Console.WriteLine();
                         Console.WriteLine("Megmentettél mindenkit! De milyen áron....");
-                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba ahol folyamatos éjszaka van.");
-                        Console.WriteLine("Próbáljátok kerülni egymást így inkább egyedül töltötik mindennapjaitok.");
-                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rád és reménykednek hogy egyszer még visszatérsz.");
-                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba, ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rőlad, és reménykednek hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
                         System.Environment.Exit(0);
                     }
 
@@ -415,13 +415,13 @@ namespace Kaland02
                     if (vegPortal == 1)
                     {
                         Console.Clear();
-                        Console.WriteLine("MIT CSINÁLSZ???");
+                       Console.WriteLine("MIT CSINÁLSZ???");
                         Console.WriteLine();
                         Console.WriteLine("Megmentettél mindenkit! De milyen áron....");
-                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba ahol folyamatos éjszaka van.");
-                        Console.WriteLine("Próbáljátok kerülni egymást így inkább egyedül töltötik mindennapjaitok.");
-                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rád és reménykednek hogy egyszer még visszatérsz.");
-                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba, ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rólad, és reménykednek hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
                         System.Environment.Exit(0);
                     }
                     else {
@@ -429,10 +429,10 @@ namespace Kaland02
                         Console.WriteLine("HA HA HA HA");
                         Console.WriteLine();
                         Console.WriteLine("Nem voltál elég gyors....");
-                        Console.WriteLine("Á tkerültetek egy másik világba ahol folyamatos éjszaka van.");
-                        Console.WriteLine("Próbálsz visszajutni de eddig még nem sikerült így egyedül töltöd mindennapjaid.");
-                        Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték és mindenki megemlékezik rád reménykedve hogy egyszer még visszatérsz.");
-                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        Console.WriteLine("Átkerültél egy másik világba, ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbálsz visszajutni, de eddig még nem sikerült, így egyedül töltöd mindennapjaid.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték, és mindenki megemlékezik rólad, reménykedve hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem érte több árvíz, így ők boldogan él tovább. Te pedig reménykedsz, hogy egy nap visszatérhetsz.");
                         System.Environment.Exit(0);
                     }
                 }
@@ -506,7 +506,7 @@ namespace Kaland02
             if (fa > 0)
             {
                 fa_vagas = true;
-                Console.WriteLine("Fhu oke mehet a fa vágás. (nyomd meg a v-betűt mielőtt letelne az idő)");
+                Console.WriteLine("Fhu, oké, mehet a favágás. (nyomd meg a v-betűt mielőtt letelne az idő)");
                 Thread.Sleep(1000);
             }
             
@@ -556,7 +556,7 @@ namespace Kaland02
         private void Secret_Ending()
         {
             Console.WriteLine("Secret Ending unlocked!");
-            Console.WriteLine("Nem vagy az erőszak híve és megsimogattad a mamutot. Ez egy jó döntés volt mivel így sikerült mindenkit megmentened vérontás nélkül.");
+            Console.WriteLine("Nem vagy az erőszak híve, és megsimogattad a mamutot. Ez egy jó döntés volt, mivel így sikerült mindenkit megmentened vérontás nélkül.");
             Console.WriteLine("Ending 2/2");
             System.Environment.Exit(0);
         }
