@@ -337,7 +337,7 @@ namespace Kaland02
                 Console.WriteLine("Áh megittam amit adott így még gyorsabban kell reagálnom!");
                 reag = 2000;
             }
-            Thread.Sleep(7000);
+            Thread.Sleep(14000);
             Console.Clear();
             Console.WriteLine("Feri elkezd megidézni egy protált amiről még ső se tudja melyik dimenzióba vezet.");
             Console.WriteLine("Gyorsan kell cselekedned!");
