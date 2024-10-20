@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kaland02")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10d69595d1e259aa076908176e12846320ba06cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b0ca05748d7fec045e1803b84980abd8ce4e689")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kaland02")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kaland02")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -79,6 +79,9 @@ namespace Kaland02
                 {
                     Console.Clear();
                     Beszelgetes(aktualisSzoba);
+                    
+
+                    
 
                 }
                 else if (aktualisSzoba.Id == 3 && irany == "MEGSIMOGAT")
@@ -260,6 +263,7 @@ namespace Kaland02
                         int targy_id = targyak[0];
                         inventory.Add(targy_id);
                         targy targy = terkep.GetTargy(targy_id);
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Felvetted: {0}",targy.Nev);
                     }
                     
@@ -403,8 +407,8 @@ namespace Kaland02
                         Console.WriteLine("és akit senki nem látott se a történtek előtt, se a történtek után");
                         Console.WriteLine("Vágó úr otthagyta a favágást, és teljes állásban kvíz műsorokat vezet.");
                         Console.WriteLine("A falut nem érte több árvíz, így mindenki boldogan él tovább.");
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        System.Environment.Exit(0);
+                        Thread.Sleep(14000);
+                        Credits();
                     }
                     else if (vegTej == 2) {
                         Console.Clear();
@@ -415,8 +419,8 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rőlad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        System.Environment.Exit(0);
+                        Thread.Sleep(14000);
+                        Credits();
                     }
 
                 }
@@ -453,8 +457,8 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rólad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        System.Environment.Exit(0);
+                        Thread.Sleep(14000);
+                        Credits();
                     }
                     else {
                         Console.Clear();
@@ -465,8 +469,8 @@ namespace Kaland02
                         Console.WriteLine("Próbálsz visszajutni, de eddig még nem sikerült, így egyedül töltöd mindennapjaid.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték, és mindenki megemlékezik rólad, reménykedve hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan él tovább. Te pedig reménykedsz, hogy egy nap visszatérhetsz.");
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        System.Environment.Exit(0);
+                        Thread.Sleep(14000);
+                        Credits();
                     }
                 }
             }
@@ -597,6 +601,55 @@ namespace Kaland02
             Console.WriteLine("Ending 2/2");
             Console.ForegroundColor = ConsoleColor.Black;
             System.Environment.Exit(0);
+        }
+
+        private void Credits()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(30, 26);
+            Console.WriteLine("Készítette: Nagy Zsombor, Táborosi Ákos");
+            Console.SetCursorPosition(30, 27);
+            Console.WriteLine("Történetet írta: Nagy Zsombor");
+            Console.SetCursorPosition(30, 28);
+            Console.WriteLine("Programozta: Táborosi Ákos");
+            Console.SetCursorPosition(30, 29);
+            Console.WriteLine("A történet valós események alapján készült....");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.SetCursorPosition(30, 13);
+            Console.WriteLine("Készítette: Nagy Zsombor, Táborosi Ákos");
+            Console.SetCursorPosition(30, 14);
+            Console.WriteLine("Történetet írta: Nagy Zsombor");
+            Console.SetCursorPosition(30, 15);
+            Console.WriteLine("Programozta: Táborosi Ákos");
+            Console.SetCursorPosition(30, 16);
+            Console.WriteLine("A történet valós események alapján készült....");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.SetCursorPosition(30, 7);
+            Console.WriteLine("Készítette: Nagy Zsombor, Táborosi Ákos");
+            Console.SetCursorPosition(30, 8);
+            Console.WriteLine("Történetet írta: Nagy Zsombor");
+            Console.SetCursorPosition(30, 9);
+            Console.WriteLine("Programozta: Táborosi Ákos");
+            Console.SetCursorPosition(30, 10);
+            Console.WriteLine("A történet valós események alapján készült....");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.SetCursorPosition(30, 0);
+            Console.WriteLine("Készítette: Nagy Zsombor, Táborosi Ákos");
+            Console.SetCursorPosition(30, 1);
+            Console.WriteLine("Történetet írta: Nagy Zsombor");
+            Console.SetCursorPosition(30, 2);
+            Console.WriteLine("Programozta: Táborosi Ákos");
+            Console.SetCursorPosition(30, 3);
+            Console.WriteLine("A történet valós események alapján készült....");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine("Vége....");
+            Console.ForegroundColor = ConsoleColor.Black;
+            System.Environment.Exit(0);
+
         }
 
     }
