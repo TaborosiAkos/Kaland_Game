@@ -17,7 +17,10 @@ namespace Kaland02
         private List<int> inventory = new List<int>();
         private bool kerdes = false;
         private bool fa_vagas = true;
-        private bool fa_kidölt = false;
+        private bool aloevera = false;
+        private bool beszelt_Feri = false;
+        private bool beszelt_Viktor = false;
+        private bool tej = false;
         private int tippek = 0;
         private int fa = 5;
 
@@ -61,12 +64,6 @@ namespace Kaland02
                 {
                     Console.Clear();
                     Beszelgetes(aktualisSzoba);
-                }
-                else if(irany == "E")
-                {
-                    Console.Clear();
-                    Inventory();
-                    
                 }
                 else if(irany == "Z")
                 {
@@ -117,9 +114,14 @@ namespace Kaland02
                 }
             }
 
-            if (!string.IsNullOrEmpty(szoba.Ellenseg))
+            if (szoba.Ellenseg[0] != "0")
             {
-                Console.WriteLine($"Ember(ek): {szoba.Ellenseg}");
+                Console.WriteLine($"Ember(ek):");
+                for (int i = 0; i < szoba.Ellenseg.Count(); i++)
+                {
+                    Console.Write("{0} ",szoba.Ellenseg[i]);
+                }
+                Console.WriteLine(" ");
             }
         }
 
@@ -160,12 +162,16 @@ namespace Kaland02
                                 Favagas();
                                 if (fa == 0)
                                 {
+                                    Console.Clear();
                                     aktualisSzobaId = ajto.Item2;
+                                    inventory.Add(6);
+                                    
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Áh elrontottam");
                                     Console.Clear();
+                                    Console.WriteLine("Áh elrontottam");
+                                    
                                 }
                             }
                             else
@@ -187,7 +193,16 @@ namespace Kaland02
                 else if (ajto.Item2 != 0)
                 {
                     aktualisSzobaId = ajto.Item2;
+                    if (ajto.Item2 != 5 && !beszelt_Feri && inventory.Contains(6))
+                    {
+                        inventory.Remove(6);
+                    }
+
                     Console.WriteLine("Mozgás sikerült.");
+                    if (aktualisSzobaId == 10)
+                    {
+                        inventory.Add(7);
+                    }
                 }
                 else
                 {
@@ -206,7 +221,6 @@ namespace Kaland02
             if (targyak.Count() <= 0)
             {
                 Console.WriteLine("Itt nincs mit felvennem!");
-                Console.WriteLine(" ");
             }
             else
             {
@@ -223,9 +237,7 @@ namespace Kaland02
                         int targy_id = targyak[0];
                         inventory.Add(targy_id);
                         targy targy = terkep.GetTargy(targy_id);
-                        Console.WriteLine(targy.Nev);
-                        Console.WriteLine("Most felveszem!");
-                        Console.WriteLine(" ");
+                        Console.WriteLine("Felvetted: {0}",targy.Nev);
                     }
                     
                 }
@@ -237,47 +249,30 @@ namespace Kaland02
  
         }
 
-        private void Inventory()
-        {
-            Console.WriteLine("A tárgyaid listája: ");
-            for (int i = 0; i < inventory.Count(); i++)
-            {
-                targy targy = terkep.GetTargy(inventory[i]);
-                Console.WriteLine(targy.Id);
-                Console.WriteLine(" ");
-            }
-        }
-
         private void Beszelgetes(szoba szoba)
         {
-            if (szoba.Ellenseg != "0" && szoba.Ellenseg_monolog != "-")
+            if (szoba.Ellenseg.Count() != 0 && szoba.Ellenseg_monolog != "-")
             {
                 string[] cucc = szoba.Ellenseg_monolog.Split("%");
 
                 if (szoba.Id == 4)
                 {
-                    inventory.Add(5);
-                    for (int i = 0; i < cucc.Length-3; i++)
-                    {
-                        Console.WriteLine(cucc[i]);
-                    }
-                    while (!kerdes) { 
-                    string valasz = Console.ReadLine();
-                    if (valasz != null && valasz.ToUpper() == "NAPFÉNY")
-                    {
-                        Console.WriteLine(cucc[cucc.Length-3]);
-                        kerdes = true;
-                    }else if (valasz != null && valasz.ToUpper() != "NAPFÉNY" && tippek == 3)
-                        {
-                            Console.WriteLine(cucc[cucc.Length - 2]);
-                            kerdes = true;
-                        }
-                    else
-                    {
-                        Console.WriteLine(cucc[^1]);
-                        tippek++;
-                    }
-                    }
+                    Favago_kerdes(cucc);
+                }else if (szoba.Id == 5)
+                {
+                    targy targy = terkep.GetTargy(inventory[^1]);
+                    string item = targy.Nev;
+                    Feri_beszel(cucc, item);
+                }
+                else if (szoba.Id == 10)
+                {
+                    targy targy = terkep.GetTargy(inventory[^1]);
+                    string item = targy.Nev;
+                    Vitya_beszel(cucc, item);
+                }
+                else if(szoba.Id == 9)
+                {
+                    Feri_beszel2(cucc);
                 }
                 else
                 {
@@ -297,43 +292,258 @@ namespace Kaland02
                 Console.WriteLine("Skizofrén vagyok itt nincs is senki!");
             }
         }
+
+        private void Feri_beszel(string[] cucc, string nev)
+        {
+            for (int i = 0; i < (cucc.Length - 3); i++)
+            {
+                Console.WriteLine(cucc[i]);
+            }
+            while (!beszelt_Feri)
+            {  
+                Console.WriteLine("{0} {1}", cucc[cucc.Length - 3], nev);
+                Console.WriteLine("Megiszod? (y/n)");
+                string valasz = Console.ReadLine();
+                if (valasz.ToUpper() == "Y")
+                {
+                    Console.Clear();
+                    aloevera = true;
+                    Console.WriteLine(cucc[cucc.Length - 2]);
+                    beszelt_Feri = true;
+                }
+                else if (valasz.ToUpper() == "N")
+                {
+                    Console.Clear();
+                    Console.WriteLine(cucc[^1]);
+                    beszelt_Feri = true;
+                }
+                else
+                {
+                    Console.WriteLine("Ezt nem választhatod!");
+                }
+
+            }
+        }
+
+        private void Feri_beszel2(string[] cucc)
+        {
+            int reag = 3000;
+            for (int i = 0; i < (cucc.Length); i++)
+            {
+                Console.WriteLine(cucc[i]);
+            }
+            if (aloevera)
+            {
+                Console.WriteLine("Áh megittam amit adott így még gyorsabban kell reagálnom!");
+                reag = 2000;
+            }
+            Thread.Sleep(7000);
+            Console.Clear();
+            Console.WriteLine("Feri elkezd megidézni egy protált amiről még ső se tudja melyik dimenzióba vezet.");
+            Console.WriteLine("Gyorsan kell cselekedned!");
+            if (tej)
+            {
+                int vegTej = 0;
+                while (vegTej == 0)
+                {
+                    Console.WriteLine("Rádobom a tejet (t)/ Magammal rántom a portálba (p)");
+                    Thread inputThread = new Thread(() =>
+                    {
+                        var keyInfo = Console.ReadKey(intercept: true);
+
+
+                        if (keyInfo.Key == ConsoleKey.T)
+                        {
+                            vegTej = 1;
+                        }
+                        else if (keyInfo.Key == ConsoleKey.P)
+                        {
+                            vegTej = 2;
+                        }
+                    });
+                    inputThread.Start();
+                    inputThread.Join(reag);
+
+                    if (vegTej == 1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("NEEEE 4,5%-os tej az egyetlen gyengém!");
+                        Console.WriteLine();
+                        Console.WriteLine("Megmentettél mindenkit! Feri a tej hatására egy ártalmatlan békévá változott és Petivel él tovább.");
+                        Console.WriteLine("Te és Vivien összeházasodtatok és lett egy gyereketek Viktor aki nevét arról a féfiról kapta aki a tejet adta");
+                        Console.WriteLine("és aki senki nem látott se a történtek előtt se a történtek után");
+                        Console.WriteLine("Vágó úr otthagyta a favágást és teljes állásban kvíz műsorokat vezet.");
+                        Console.WriteLine("A falut nem értek több árvíz így mindenki boldogan él tovább.");
+                        System.Environment.Exit(0);
+                    }
+                    else if (vegTej == 2) {
+                        Console.Clear();
+                        Console.WriteLine("MIT CSINÁLSZ???");
+                        Console.WriteLine();
+                        Console.WriteLine("Megmentettél mindenkit! De milyen áron....");
+                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbáljátok kerülni egymást így inkább egyedül töltötik mindennapjaitok.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rád és reménykednek hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        System.Environment.Exit(0);
+                    }
+
+                }
+            }
+            else if (!tej) {
+                int vegPortal = 0;
+                while (vegPortal == 0)
+                {
+                    Console.WriteLine("Magammal rántom a portálba (p)");
+                    Thread inputThread = new Thread(() =>
+                    {
+                        var keyInfo = Console.ReadKey(intercept: true);
+
+
+                        if (keyInfo.Key == ConsoleKey.P)
+                        {
+                            vegPortal = 1;
+                        }
+                        else
+                        {
+                            vegPortal = 2;
+                        }
+                    });
+                    inputThread.Start();
+                    inputThread.Join(reag);
+
+                    if (vegPortal == 1)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("MIT CSINÁLSZ???");
+                        Console.WriteLine();
+                        Console.WriteLine("Megmentettél mindenkit! De milyen áron....");
+                        Console.WriteLine("Te és Feri is átkerültetek egy másik világba ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbáljátok kerülni egymást így inkább egyedül töltötik mindennapjaitok.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rád és reménykednek hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        System.Environment.Exit(0);
+                    }
+                    else {
+                        Console.Clear();
+                        Console.WriteLine("HA HA HA HA");
+                        Console.WriteLine();
+                        Console.WriteLine("Nem voltál elég gyors....");
+                        Console.WriteLine("Á tkerültetek egy másik világba ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbálsz visszajutni de eddig még nem sikerült így egyedül töltöd mindennapjaid.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték és mindenki megemlékezik rád reménykedve hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem értek több árvíz így ők boldogan él tovább.");
+                        System.Environment.Exit(0);
+                    }
+                }
+            }
+
+        }
+
+        private void Vitya_beszel(string[] cucc, string nev)
+        {
+            for (int i = 0; i < (cucc.Length - 3); i++)
+            {
+                Console.WriteLine(cucc[i]);
+            }
+            while (!beszelt_Viktor)
+            {
+                Console.WriteLine("{0} {1}", cucc[cucc.Length - 3], nev);
+                Console.WriteLine("Elveszed? (i/n)");
+                string valasz = Console.ReadLine();
+                if (valasz.ToUpper() == "I")
+                {
+                    Console.Clear();
+                    Console.WriteLine(cucc[cucc.Length - 2]);
+                    tej = true;
+                    beszelt_Viktor = true;
+                }
+                else if (valasz.ToUpper() == "N")
+                {
+                    Console.Clear();
+                    Console.WriteLine(cucc[^1]);
+                    beszelt_Viktor = true;
+                }
+                else
+                {
+                    Console.WriteLine("Ezt nem választhatod!");
+                }
+            }
+
+        }
+
+
+        private void Favago_kerdes(string[] cucc)
+        {
+            inventory.Add(5);
+            for (int i = 0; i < cucc.Length - 3; i++)
+            {
+                Console.WriteLine(cucc[i]);
+            }
+            while (!kerdes)
+            {
+                string valasz = Console.ReadLine();
+                if (valasz != null && valasz.ToUpper() == "NAPFÉNY")
+                {
+                    Console.Clear();
+                    Console.WriteLine(cucc[cucc.Length - 3]);
+                    kerdes = true;
+                }
+                else if (valasz != null && valasz.ToUpper() != "NAPFÉNY" && tippek == 3)
+                {
+                    Console.WriteLine(cucc[cucc.Length - 2]);
+                    kerdes = true;
+                }
+                else
+                {
+                    Console.WriteLine(cucc[^1]);
+                    tippek++;
+                }
+            }
+        }
         private void Favagas()
         {
             if (fa > 0)
             {
                 fa_vagas = true;
                 Console.WriteLine("Fhu oke mehet a fa vágás. (nyomd meg a v-betűt mielőtt letelne az idő)");
-                Thread.Sleep(3000);
+                Thread.Sleep(1000);
             }
             
                 while (fa_vagas)
                 {
+                    Thread.Sleep(1000);
                     Console.WriteLine("Most:");
                     string? vag = null;
                     Thread inputThread = new Thread(() =>
                     {
-                        vag = Console.ReadLine();
+                        var keyInfo = Console.ReadKey(intercept: true);
+
+                        if (keyInfo.Key == ConsoleKey.V)
+                        {
+                            vag = "v";
+                        }
+                        
+                        
 
                     });
                     inputThread.Start();
-                    inputThread.Join(1000);
+                    inputThread.Join(500);
                     if (vag == null || vag != "v")
                     {
                         fa_vagas = false;
                         fa = 5;
-                        Console.Clear();
                 }
-                    if (vag == "v")
+                if (vag == "v")
+                {
+                    Console.WriteLine("Áh jó");
+                    fa--;
+                    if (fa == 0)
                     {
-                        Console.WriteLine("most jo");
-                        fa--;
-                        if (fa == 0)
-                        {
-                            fa_vagas = false;
-                        }
-
+                        fa_vagas = false;
                     }
 
+                }
 
                 }
             

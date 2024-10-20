@@ -51,10 +51,10 @@ namespace Kaland02
                         targyak.Add(int.Parse(adatok[5].Split(':')[1])); // Tárgy ID
                     }
 
-                    string ellenseg = adatok[6].Split(':')[1]; // Ellenség típusa
+                    string[] ellensegek = adatok[6].Split(':')[1].Split('+'); // Ellenség típusa
                     string ellenseg_monolog = adatok[7]; // Ellenség beszéde
 
-                    szoba szoba = new szoba(id, nev, ajtok, targyak, ellenseg, ellenseg_monolog);
+                    szoba szoba = new szoba(id, nev, ajtok, targyak, ellensegek, ellenseg_monolog);
                     HozzaadSzoba(szoba);
                 }
             }
