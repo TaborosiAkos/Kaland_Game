@@ -364,7 +364,7 @@ namespace Kaland02
                 Console.WriteLine("Áh, megittam amit adott, ezért még gyorsabban kell reagálnom!");
                 reag = 2000;
             }
-            Thread.Sleep(14000);
+            Thread.Sleep(10000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Feri elkezd megidézni egy portált, amiről még ő sem tudja, melyik dimenzióba vezet.");
