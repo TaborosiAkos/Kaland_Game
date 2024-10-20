@@ -43,18 +43,24 @@ namespace Kaland02
 
         public void Start()
         {
+
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Játék indul!");
             while (true)
             {
                 szoba aktualisSzoba = terkep.GetSzoba(aktualisSzobaId);
+                Console.ForegroundColor= ConsoleColor.White;
                 Console.WriteLine($"Jelenlegi helyszín: {aktualisSzoba.Nev}");
 
                 MegjelenitSzobaInfo(aktualisSzoba);
 
-                Console.WriteLine("Merre szeretnél menni? (É/NY/D/K vagy 'kilépés' a kilépéshez)");
+                Console.WriteLine("Merre szeretnél menni?/Mit szeretnél csinálni? (É/NY/D/K/B/F vagy 'kilépés' a kilépéshez)");
                 string irany = Console.ReadLine().ToUpper();
 
-                if (irany == "KILÉPÉS") break;
+                if (irany == "KILÉPÉS") {
+                    Console.ForegroundColor = ConsoleColor.Black; 
+                    break;
+                } 
                 if (irany == "F" && aktualisSzoba.Id !=4) {
                     Console.Clear();
                     Felveszem();
@@ -98,12 +104,17 @@ namespace Kaland02
                 if (ajto.Value.Item2 != 0)
                 {
                     szoba aktualisSzoba = terkep.GetSzoba(ajto.Value.Item2);
-                    Console.WriteLine($"{ajto.Key} irányban {ajto.Value.Item1} vezet a(z){aktualisSzoba.Nev}-ba/be");
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.Write(ajto.Key);
+                    Console.ForegroundColor= ConsoleColor.White;
+                    Console.WriteLine($" irányban {ajto.Value.Item1} vezet a(z){aktualisSzoba.Nev}-ba/be");
                 }
             }
             if (szoba.Targyak.Count > 0)
             {
-                Console.WriteLine("A szobában található tárgyak:");                
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("A szobában található tárgyak:");
+                Console.ForegroundColor = ConsoleColor.White;
                 foreach (var targyId in szoba.Targyak)
                 {
                     targy targy = terkep.GetTargy(targyId);
@@ -116,7 +127,9 @@ namespace Kaland02
 
             if (szoba.Ellenseg[0] != "0")
             {
+                Console.ForegroundColor = ConsoleColor.Blue;
                 Console.WriteLine($"Ember(ek):");
+                Console.ForegroundColor = ConsoleColor.White;
                 for (int i = 0; i < szoba.Ellenseg.Count(); i++)
                 {
                     Console.Write("{0} ",szoba.Ellenseg[i]);
@@ -150,6 +163,7 @@ namespace Kaland02
                     }
                     if (seged)
                     {
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Az ajtó kinyílt!");
                         aktualisSzobaId = ajto.Item2;
                     }
@@ -170,21 +184,26 @@ namespace Kaland02
                                 else
                                 {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.DarkRed;
                                     Console.WriteLine("Áh, elrontottam!");
                                     
                                 }
                             }
                             else
                             {
+                                Console.ForegroundColor = ConsoleColor.DarkRed;
                                 Console.WriteLine("A bejáratot egy nagy fa torlaszolta el!");
                             }
                         }else if (ajto.Item2 == 6)
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Az ajtó előtt egy gigászi mamut áll??");
+                            Console.ForegroundColor = ConsoleColor.White;
                             Console.WriteLine("Meg kell várnom míg elmegy!");
                         }
                         else
                         {
+                            Console.ForegroundColor = ConsoleColor.DarkRed;
                             Console.WriteLine("Az ajtó zárva van.");
                         }
                         
@@ -197,7 +216,7 @@ namespace Kaland02
                     {
                         inventory.Remove(6);
                     }
-
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Mozgás sikerült.");
                     if (aktualisSzobaId == 10)
                     {
@@ -206,11 +225,13 @@ namespace Kaland02
                 }
                 else
                 {
+                    Console.ForegroundColor= ConsoleColor.DarkRed;
                     Console.WriteLine("Erre nem vezet út.");
                 }
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Nem érvényes irány.");
             }
         }
@@ -220,6 +241,7 @@ namespace Kaland02
             List<int> targyak = aktualisSzoba.Targyak;
             if (targyak.Count() <= 0)
             {
+                Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("Itt nincs mit felvennem!");
             }
             else
@@ -230,6 +252,7 @@ namespace Kaland02
                 {
                     if (aktualisSzoba.Targyak[0] == 4)
                     {
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine("Ezt inkább nem veszem fel!");
                     }
                     else
@@ -243,6 +266,7 @@ namespace Kaland02
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Már felvettem mindent!");
                 }
             }
@@ -251,7 +275,7 @@ namespace Kaland02
 
         private void Beszelgetes(szoba szoba)
         {
-            if (szoba.Ellenseg.Count() != 0 && szoba.Ellenseg_monolog != "-")
+            if (szoba.Ellenseg[0] != "0" && szoba.Ellenseg_monolog != "-")
             {
                 string[] cucc = szoba.Ellenseg_monolog.Split("%");
 
@@ -289,7 +313,8 @@ namespace Kaland02
             }
             else
             {
-                Console.WriteLine("Skizofrén vagyok, itt nincs is senki!");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("Itt nincs is senki!");
             }
         }
 
@@ -319,6 +344,7 @@ namespace Kaland02
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Ezt nem választhatod!");
                 }
 
@@ -334,12 +360,15 @@ namespace Kaland02
             }
             if (aloevera)
             {
+                Console.ForegroundColor= ConsoleColor.DarkRed;
                 Console.WriteLine("Áh, megittam amit adott, ezért még gyorsabban kell reagálnom!");
                 reag = 2000;
             }
             Thread.Sleep(14000);
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Feri elkezd megidézni egy portált, amiről még ő sem tudja, melyik dimenzióba vezet.");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Gyorsan kell cselekedned!");
             if (tej)
             {
@@ -374,6 +403,7 @@ namespace Kaland02
                         Console.WriteLine("és akit senki nem látott se a történtek előtt, se a történtek után");
                         Console.WriteLine("Vágó úr otthagyta a favágást, és teljes állásban kvíz műsorokat vezet.");
                         Console.WriteLine("A falut nem érte több árvíz, így mindenki boldogan él tovább.");
+                        Console.ForegroundColor = ConsoleColor.Black;
                         System.Environment.Exit(0);
                     }
                     else if (vegTej == 2) {
@@ -385,6 +415,7 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rőlad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
+                        Console.ForegroundColor = ConsoleColor.Black;
                         System.Environment.Exit(0);
                     }
 
@@ -422,6 +453,7 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rólad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
+                        Console.ForegroundColor = ConsoleColor.Black;
                         System.Environment.Exit(0);
                     }
                     else {
@@ -433,6 +465,7 @@ namespace Kaland02
                         Console.WriteLine("Próbálsz visszajutni, de eddig még nem sikerült, így egyedül töltöd mindennapjaid.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték, és mindenki megemlékezik rólad, reménykedve hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan él tovább. Te pedig reménykedsz, hogy egy nap visszatérhetsz.");
+                        Console.ForegroundColor = ConsoleColor.Black;
                         System.Environment.Exit(0);
                     }
                 }
@@ -466,6 +499,7 @@ namespace Kaland02
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("Ezt nem választhatod!");
                 }
             }
@@ -496,7 +530,9 @@ namespace Kaland02
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine(cucc[^1]);
+                    Console.ForegroundColor = ConsoleColor.White;
                     tippek++;
                 }
             }
@@ -555,9 +591,11 @@ namespace Kaland02
 
         private void Secret_Ending()
         {
+            
             Console.WriteLine("Secret Ending unlocked!");
             Console.WriteLine("Nem vagy az erőszak híve, és megsimogattad a mamutot. Ez egy jó döntés volt, mivel így sikerült mindenkit megmentened vérontás nélkül.");
             Console.WriteLine("Ending 2/2");
+            Console.ForegroundColor = ConsoleColor.Black;
             System.Environment.Exit(0);
         }
 
