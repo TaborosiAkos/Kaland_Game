@@ -397,7 +397,7 @@ namespace Kaland02
 
                 reag = 2000;
             }
-            Thread.Sleep(9500);
+            Thread.Sleep(20000);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Feri elkezd megidézni egy portált, amiről még ő sem tudja, melyik dimenzióba vezet.");
@@ -440,7 +440,7 @@ namespace Kaland02
                         Console.WriteLine("és akit senki nem látott se a történtek előtt, se a történtek után");
                         Console.WriteLine("Vágó úr otthagyta a favágást, és teljes állásban kvíz műsorokat vezet.");
                         Console.WriteLine("A falut nem érte több árvíz, így mindenki boldogan él tovább.");
-                        Thread.Sleep(14000);
+                        Thread.Sleep(30000);
                         Credits();
                     }
                     else if (vegTej == 2) {
@@ -452,7 +452,7 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rőlad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
-                        Thread.Sleep(14000);
+                        Thread.Sleep(30000);
                         Credits();
                     }
                     else
@@ -465,7 +465,7 @@ namespace Kaland02
                         Console.WriteLine("Próbálsz visszajutni, de eddig még nem sikerült, így egyedül töltöd mindennapjaid.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték, és mindenki megemlékezik rólad, reménykedve hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan él tovább. Te pedig reménykedsz, hogy egy nap visszatérhetsz.");
-                        Thread.Sleep(14000);
+                        Thread.Sleep(30000);
                         Credits();
                     }
 

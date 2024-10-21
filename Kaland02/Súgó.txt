@@ -1,0 +1,10 @@
+Kaland játék használati utasítás:
+
+É: Mozgás észak irányba.
+D: Mozgás dél irányba.
+NY: Mozgás nyugat irányba.
+K: Mozgás kelet irányba.
+B: Beszéd
+F: Tárgy felvétele
+
+Készítette: Táborosi Ákos, Nagy Zsombor

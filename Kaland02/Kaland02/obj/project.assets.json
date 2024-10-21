@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Doba Sándor\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
+      "projectUniqueName": "D:\\Nagy Zsombor\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
       "projectName": "Kaland02",
-      "projectPath": "D:\\Doba Sándor\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
+      "projectPath": "D:\\Nagy Zsombor\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
       "packagesPath": "C:\\Users\\Tanulo\\.nuget\\packages\\",
-      "outputPath": "D:\\Doba Sándor\\Kaland_Game\\Kaland02\\Kaland02\\obj\\",
+      "outputPath": "D:\\Nagy Zsombor\\Kaland_Game\\Kaland02\\Kaland02\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
