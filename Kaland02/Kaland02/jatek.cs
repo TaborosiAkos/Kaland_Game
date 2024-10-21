@@ -411,6 +411,10 @@ namespace Kaland02
                         {
                             vegTej = 2;
                         }
+                        else
+                        {
+                            vegTej = 3;
+                        }
                     });
                     inputThread.Start();
                     inputThread.Join(reag);
@@ -437,6 +441,19 @@ namespace Kaland02
                         Console.WriteLine("Próbáljátok kerülni egymást, így inkább magányosan töltötik mindennapjaitok.");
                         Console.WriteLine("A faluban ez a nap azóta a te napod. Mindenki megemlékezik rőlad, és reménykednek hogy egyszer még visszatérsz.");
                         Console.WriteLine("A falut nem érte több árvíz, így ők boldogan élnek tovább. Nem volt hiábavaló az áldozatod.");
+                        Thread.Sleep(14000);
+                        Credits();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("HA HA HA HA");
+                        Console.WriteLine();
+                        Console.WriteLine("Nem voltál elég gyors....");
+                        Console.WriteLine("Átkerültél egy másik világba, ahol folyamatos éjszaka van.");
+                        Console.WriteLine("Próbálsz visszajutni, de eddig még nem sikerült, így egyedül töltöd mindennapjaid.");
+                        Console.WriteLine("A faluban ez a nap azóta a te napod. Ferit elüldözték, és mindenki megemlékezik rólad, reménykedve hogy egyszer még visszatérsz.");
+                        Console.WriteLine("A falut nem érte több árvíz, így ők boldogan él tovább. Te pedig reménykedsz, hogy egy nap visszatérhetsz.");
                         Thread.Sleep(14000);
                         Credits();
                     }
@@ -497,10 +514,19 @@ namespace Kaland02
 
         private void Vitya_beszel(string[] cucc, string nev)
         {
-            for (int i = 0; i < (cucc.Length - 3); i++)
+            if (!beszelt_Viktor)
             {
-                Console.WriteLine(cucc[i]);
+                for (int i = 0; i < (cucc.Length - 3); i++)
+                {
+                    Console.WriteLine(cucc[i]);
+                }
             }
+            else
+            {
+                Console.WriteLine("Viktor:");
+                Console.WriteLine(cucc[cucc.Length - 2]);
+            }
+
             while (!beszelt_Viktor)
             {
                 Console.WriteLine("{0} {1}", cucc[cucc.Length - 3], nev);
@@ -509,6 +535,7 @@ namespace Kaland02
                 if (valasz.ToUpper() == "I")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(cucc[cucc.Length - 2]);
                     tej = true;
                     beszelt_Viktor = true;
@@ -516,6 +543,7 @@ namespace Kaland02
                 else if (valasz.ToUpper() == "N")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(cucc[^1]);
                     beszelt_Viktor = true;
                 }
@@ -541,6 +569,7 @@ namespace Kaland02
             }
             else
             {
+                Console.WriteLine("Vágó úr:");
                 Console.WriteLine("Ugye milyen jó kérdést találtam ki!");
             }
 

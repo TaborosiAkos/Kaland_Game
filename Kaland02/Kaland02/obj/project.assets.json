@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Ákos\\.nuget\\packages\\": {},
+    "C:\\Users\\Tanulo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ákos\\Desktop\\C#\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
+      "projectUniqueName": "D:\\Áki\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
       "projectName": "Kaland02",
-      "projectPath": "C:\\Users\\Ákos\\Desktop\\C#\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
-      "packagesPath": "C:\\Users\\Ákos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ákos\\Desktop\\C#\\Kaland_Game\\Kaland02\\Kaland02\\obj\\",
+      "projectPath": "D:\\Áki\\Kaland_Game\\Kaland02\\Kaland02\\Kaland02.csproj",
+      "packagesPath": "C:\\Users\\Tanulo\\.nuget\\packages\\",
+      "outputPath": "D:\\Áki\\Kaland_Game\\Kaland02\\Kaland02\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ákos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tanulo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -71,7 +71,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
