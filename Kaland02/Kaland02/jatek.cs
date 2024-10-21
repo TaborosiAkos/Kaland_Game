@@ -219,6 +219,9 @@ namespace Kaland02
                     if (ajto.Item2 != 5 && !beszelt_Feri && inventory.Contains(6))
                     {
                         inventory.Remove(6);
+                    }else if(ajto.Item2 == 5 && !beszelt_Feri && !inventory.Contains(6))
+                    {
+                        inventory.Add(6);
                     }
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("Mozgás sikerült.");
@@ -325,9 +328,17 @@ namespace Kaland02
 
         private void Feri_beszel(string[] cucc, string nev)
         {
-            for (int i = 0; i < (cucc.Length - 3); i++)
+            if (!beszelt_Viktor)
             {
-                Console.WriteLine(cucc[i]);
+                for (int i = 0; i < (cucc.Length - 3); i++)
+                {
+                    Console.WriteLine(cucc[i]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Feri:");
+                Console.WriteLine("Sok sikert a birtokon!");
             }
             while (!beszelt_Feri)
             {  
@@ -524,7 +535,7 @@ namespace Kaland02
             else
             {
                 Console.WriteLine("Viktor:");
-                Console.WriteLine(cucc[cucc.Length - 2]);
+                Console.WriteLine("Sok sikert a birtokon!");
             }
 
             while (!beszelt_Viktor)
