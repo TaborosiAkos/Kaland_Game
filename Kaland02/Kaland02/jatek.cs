@@ -367,26 +367,26 @@ namespace Kaland02
             }
             if (aloevera)
             {
-                string[] mondat = "Á/h/,/ /m/e/g/i/t/t/a/m/ /a/m/i/t/ /a/d/o/t/t/,/ /e/z/é/r/t/ /m/é/g/ /g/y/o/r/s/a/b/b/a/n/ k/e/l/l/ /r/e/a/g/á/l/n/o/m/!/".Split('/');
-
-                    for (int j = 0; j < mondat.Length; j++)
+                
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.SetCursorPosition(0, 6);
+                    if ( i % 2 == 0)
                     {
-                        Console.SetCursorPosition(j, 6);
-                        if (j % 2 == 0)
-                        {
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                        }
-                        else
-                        {
-                            Console.ForegroundColor = ConsoleColor.Magenta;
-                        }
-
-                        Console.Write(mondat[j]);
-                        Thread.Sleep(500);
+                        Console.ForegroundColor = ConsoleColor.Cyan;
                     }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                    }
+
+                    Console.WriteLine("Áh, megittam amit adott, ezért még gyorsabban kell reagálnom!");
+                    Thread.Sleep(500);
+                }
+
                 reag = 2000;
             }
-            Thread.Sleep(10000);
+            Thread.Sleep(9500);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("Feri elkezd megidézni egy portált, amiről még ő sem tudja, melyik dimenzióba vezet.");
