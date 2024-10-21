@@ -20,6 +20,7 @@ namespace Kaland02
         private bool aloevera = false;
         private bool beszelt_Feri = false;
         private bool beszelt_Viktor = false;
+        private bool beszelt_fa = false;
         private bool tej = false;
         private int tippek = 0;
         private int fa = 5;
@@ -331,18 +332,20 @@ namespace Kaland02
             while (!beszelt_Feri)
             {  
                 Console.WriteLine("{0} {1}", cucc[cucc.Length - 3], nev);
-                Console.WriteLine("Megiszod? (y/n)");
+                Console.WriteLine("Megiszod? (i/n)");
                 string valasz = Console.ReadLine();
-                if (valasz.ToUpper() == "Y")
+                if (valasz.ToUpper() == "I")
                 {
                     Console.Clear();
                     aloevera = true;
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(cucc[cucc.Length - 2]);
                     beszelt_Feri = true;
                 }
                 else if (valasz.ToUpper() == "N")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(cucc[^1]);
                     beszelt_Feri = true;
                 }
@@ -364,8 +367,23 @@ namespace Kaland02
             }
             if (aloevera)
             {
-                Console.ForegroundColor= ConsoleColor.DarkRed;
-                Console.WriteLine("Áh, megittam amit adott, ezért még gyorsabban kell reagálnom!");
+                string[] mondat = "Á/h/,/ /m/e/g/i/t/t/a/m/ /a/m/i/t/ /a/d/o/t/t/,/ /e/z/é/r/t/ /m/é/g/ /g/y/o/r/s/a/b/b/a/n/ k/e/l/l/ /r/e/a/g/á/l/n/o/m/!/".Split('/');
+
+                    for (int j = 0; j < mondat.Length; j++)
+                    {
+                        Console.SetCursorPosition(j, 6);
+                        if (j % 2 == 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                        }
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                        }
+
+                        Console.Write(mondat[j]);
+                        Thread.Sleep(500);
+                    }
                 reag = 2000;
             }
             Thread.Sleep(10000);
@@ -514,26 +532,40 @@ namespace Kaland02
         private void Favago_kerdes(string[] cucc)
         {
             inventory.Add(5);
-            for (int i = 0; i < cucc.Length - 3; i++)
+            if (!beszelt_fa)
             {
-                Console.WriteLine(cucc[i]);
+                for (int i = 0; i < cucc.Length - 3; i++)
+                {
+                    Console.WriteLine(cucc[i]);
+                }
             }
+            else
+            {
+                Console.WriteLine("Ugye milyen jó kérdést találtam ki!");
+            }
+
             while (!kerdes)
             {
                 string valasz = Console.ReadLine();
                 if (valasz != null && valasz.ToUpper() == "NAPFÉNY")
                 {
                     Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine(cucc[cucc.Length - 3]);
                     kerdes = true;
+                    beszelt_fa = true;
                 }
                 else if (valasz != null && valasz.ToUpper() != "NAPFÉNY" && tippek == 3)
                 {
+                    Console.Clear();
+                    Console.ForegroundColor= ConsoleColor.Red;
                     Console.WriteLine(cucc[cucc.Length - 2]);
                     kerdes = true;
+                    beszelt_fa = true;
                 }
                 else
                 {
+                    
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine(cucc[^1]);
                     Console.ForegroundColor = ConsoleColor.White;
