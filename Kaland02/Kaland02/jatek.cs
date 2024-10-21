@@ -328,7 +328,7 @@ namespace Kaland02
 
         private void Feri_beszel(string[] cucc, string nev)
         {
-            if (!beszelt_Viktor)
+            if (!beszelt_Feri)
             {
                 for (int i = 0; i < (cucc.Length - 3); i++)
                 {
